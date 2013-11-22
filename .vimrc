@@ -125,6 +125,24 @@ set virtualedit+=block
 
 noremap <silent> <leader><space> :noh<cr>:call clearmatches()<cr>
 
+" Directional Keys {{{
+
+" It's 2013.
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+" Easy buffer navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
+
+noremap <leader>v <C-w>v
+
+" }}}
+
 " }}}
 
 " Folding ----------------------------------------------------------------- {{{
