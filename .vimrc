@@ -2,19 +2,18 @@
 
 syntax on
 set background=dark
-colorscheme xoria256
+colorscheme badwolf
 
 " Reload the colorscheme whenever we write the file.
-augroup color_xoria_dev
+augroup color_badwolf_dev
     au!
-    au BufWritePost xoria256.vim color xoria256
+    au BufWritePost badwolf.vim color badwolf
 augroup END
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " }}}
-
 " Wildmenu completion {{{
 
 set wildignore+=.hg,.git,.svn                    " Version control
@@ -29,7 +28,6 @@ set wildignore+=classes
 set wildignore+=lib
 
 " }}}
-
 " Convenience mappings ---------------------------------------------------- {{{
 " Toggle line numbers
 nnoremap <leader>n :setlocal number!<cr>
@@ -101,7 +99,6 @@ inoremap <c-]> <c-x><c-]>
 " }}}
 "
 " }}}
-
 " Searching and movement -------------------------------------------------- {{{
 
 " Use sane regexes.
@@ -142,7 +139,6 @@ noremap <leader>v <C-w>v
 " }}}
 
 " }}}
-
 " Folding ----------------------------------------------------------------- {{{
 
 set foldlevelstart=0
@@ -185,10 +181,8 @@ endfunction " }}}
 set foldtext=MyFoldText()
 
 " }}}
-"
 " Fold settings, I consider these personal since programming languages peple use
 " and what characters to fold with are different.
-"
 " Filetype-specific ------------------------------------------------------- {{{
 
 " C {{{
@@ -360,7 +354,6 @@ augroup END
 
 " }}}
 " }}}
-
 " Plugin settings --------------------------------------------------------- {{{
 " Ctrl-P {{{
 
@@ -445,7 +438,6 @@ let NERDTreeMapJumpFirstChild = 'gK'
 
 " }}}
 " }}}
-
 " Indent Guides {{{
 
 let g:indentguides_state = 0
@@ -498,8 +490,6 @@ endfunction " }}}
 command! -nargs=0 Pulse call s:Pulse()
 
 " }}}
-
-
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
@@ -519,7 +509,7 @@ if has('gui_running')
 
     if has("gui_macvim")
         " GUI Vim
-        set guifont=Menlo\ for\ Powerline\ 12
+        set guifont=Menlo\ for\ Powerline:h15
         " Full screen means FULL screen
         set fuoptions=maxvert,maxhorz
 
