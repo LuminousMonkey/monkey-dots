@@ -2,14 +2,12 @@
 
 syntax on
 set background=dark
-let g:badwolf_tabline = 2
-let g:badwolf_html_link_underline = 0
-colorscheme badwolf
+colorscheme xoria256
 
 " Reload the colorscheme whenever we write the file.
-augroup color_badwolf_dev
+augroup color_xoria_dev
     au!
-    au BufWritePost badwolf.vim color badwolf
+    au BufWritePost xoria256.vim color xoria256
 augroup END
 
 " Highlight VCS conflict markers
@@ -505,10 +503,6 @@ command! -nargs=0 Pulse call s:Pulse()
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
-    " GUI Vim
-
-    set guifont=Menlo\ for\ Powerline\ 12
-
     " Remove all the UI cruft
     set go-=T
     set go-=l
@@ -524,6 +518,8 @@ if has('gui_running')
     set guicursor+=i-ci:ver20-iCursor
 
     if has("gui_macvim")
+        " GUI Vim
+        set guifont=Menlo\ for\ Powerline\ 12
         " Full screen means FULL screen
         set fuoptions=maxvert,maxhorz
 
