@@ -395,19 +395,6 @@ let my_ctrlp_ffind_command = "ffind --semi-restricted --dir %s --type e -B -f"
 let g:ctrlp_user_command = ['.git/', my_ctrlp_ffind_command, my_ctrlp_ffind_command]
 
 " }}}
-" Paredit {{{
-
-let g:paredit_smartjump = 1
-let g:paredit_shortmaps = 0
-
-" }}}
-" Powerline {{{
-
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 1
-let g:Powerline_colorscheme = 'default'
-
-" }}}
 " NERD Tree {{{
 
 noremap  <F2> :NERDTreeToggle<cr>
@@ -434,6 +421,32 @@ let NERDChristmasTree = 1
 let NERDTreeChDirMode = 2
 let NERDTreeMapJumpFirstChild = 'gK'
 
+" }}}
+" Paredit {{{
+
+let g:paredit_smartjump = 1
+let g:paredit_shortmaps = 0
+
+" }}}
+" Powerline {{{
+
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_cache_enabled = 1
+let g:Powerline_colorscheme = 'default'
+
+" }}}
+" Syntastic {{{
+let g:syntastic_enable_signs = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_java_checker = 'javac'
+let g:syntastic_mode_map = {
+            \ "mode": "active",
+            \ "active_filetypes": [],
+            \ "passive_filetypes": ['java', 'html', 'rst']
+            \ }
+let g:syntastic_stl_format = '[%E{%e Errors}%B{, }%W{%w Warnings}]'
+
+nnoremap <leader>C :SyntasticCheck<cr>
 " }}}
 " }}}
 " Indent Guides {{{
