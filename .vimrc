@@ -237,9 +237,7 @@ let g:clojure_highlight_extra_defs = [
 augroup ft_clojure
     au!
 
-    au BufNewFile,BufRead riemann.config set filetype=clojure
     au FileType clojure silent! call TurnOnClojureFolding()
-    au FileType clojure compiler clojure
     au FileType clojure setlocal report=100000
 
     au FileType clojure RainbowParenthesesActivate
