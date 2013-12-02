@@ -1,0 +1,6 @@
+clear mod4
+remove mod5 = ISO_Level3_Shift
+add mod1 = ISO_Level3_Shift
+remove Lock = Caps_Lock
+keysym Caps_Lock = Control_L
+add Control = Control_L
