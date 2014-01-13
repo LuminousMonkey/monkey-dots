@@ -3,10 +3,14 @@ title_transmit_fg_color = "#cccccc"
 title_transmit_bg_color = "#202020"
 title_inactive_fg_color = "#000000"
 title_inactive_bg_color = "#202020"
+borderless = true
 
 [profiles]
 [[default]]
+term = xterm-256color
+show_titlebar = false
 use_system_font = false
+scrollbar_position = disabled
 font = Menlo for Powerline 14
 background_color = "#000000"
 foreground_color = "#f6f3e8"

@@ -504,6 +504,8 @@ command! -nargs=0 Pulse call s:Pulse()
 " Environments (GUI/Console) ---------------------------------------------- {{{
 
 if has('gui_running')
+
+    set guifont=Menlo\ for\ Powerline\ 14
     " Remove all the UI cruft
     set go-=T
     set go-=l

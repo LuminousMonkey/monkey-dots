@@ -1,2 +1,5 @@
 # Add the paths that I tend to have
-path+=~/.local/bin
+path=($path
+    $HOME/.local/bin)
+
+export PATH
