@@ -1,0 +1,9 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#minibuffer, .mode-line {
+    font-size: 16px;
+}
+
+#minibuffer-prompt {
+    color: red;
+}

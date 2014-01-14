@@ -1,0 +1,14 @@
+@namespace url("http://www.w3.org/1999/xhtml");
+
+span.__conkeror_hint {
+    font-size: 14px !important;
+    font-weight: bold;
+    margin-left: -15px;
+    color: white;
+    font-family: Helvetica;
+    background: rgba(210,1,133,0.8) !important;
+    border: 2px solid rgb(165,1,105);
+    padding: 4px;
+    border-radius: 3px;
+    line-height: 1em !important;
+}
