@@ -9,7 +9,7 @@ Xft.hinting:   1
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
-XTerm*faceName:         Consolas
+XTerm*faceName:         xft:Monaco for Powerline
 xterm*faceSize:         13
 xterm*boldMode:         false
 xterm*cutNewline:       false
@@ -29,11 +29,55 @@ xterm*charClass:        33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:4
 xterm*jumpScroll:       true
 xterm*multiScroll:      true
 xterm*saveLines:        512
+xterm*termName:         xterm-256color
+
+UXTerm*faceName:         Monaco for Powerline
+UXTerm*faceSize:         13
+UXTerm*boldMode:         false
+UXTerm*cutNewline:       false
+UXTerm*on4Clicks:        group
+UXTerm*on5Clicks:        page
+UXTerm*internalBorder:   1
+UXTerm*background:       #121212
+UXTerm*foreground:       #a0a0a0
+UXTerm*metaSendsEscape:  true
+UXTerm*colorBD:          #ffffff
+UXTerm*colorBDMode:      true
+UXTerm*cursorBlink:      false
+UXTerm*cursorColor:      #ff9900
+UXTerm*veryBoldColors:   14
+UXTerm*loginShell:       true
+UXTerm*charClass:        33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
+UXTerm*jumpScroll:       true
+UXTerm*multiScroll:      true
+UXTerm*saveLines:        512
+UXTerm*termName:         xterm-256color
+
+UXTerm*color0:                         #1b1d1e
+UXTerm*color8:                         #505354
+UXTerm*color1:                         #f92672
+UXTerm*color9:                         #ff669d
+UXTerm*color2:                         #a6e22e
+UXTerm*color10:                        #beed5f
+UXTerm*color3:                         #fd971f
+UXTerm*color11:                        #e6db74
+UXTerm*color4:                         #66d9ef
+UXTerm*color12:                        #66d9ef
+UXTerm*color5:                         #9e6ffe
+UXTerm*color13:                        #9e6ffe
+UXTerm*color6:                         #5e7175
+UXTerm*color14:                        #a3babf
+UXTerm*color7:                         #ccccc6
+UXTerm*color15:                        #f8f8f2
 
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    true
-URxvt*font:                           xft:Consolas-14
+URxvt*font:                         xft:Monaco for Powerline:regular:size=14
+URxvt*imFont:               xft:Monaco for Powerline:regular:size=14
+URxvt*boldFont:             xft:Monaco for Powerline:bold:size=14
+URxvt*italicFont:           xft:Monaco for Powerline:italic:size=14
+URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=14
 URxvt*jumpScroll:                     true
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false
