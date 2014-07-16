@@ -5,15 +5,16 @@ socktimeout = 60
 maxsyncaccounts = 3
 
 [Account Fastmail]
-localrepository = Local
-remoterepository = Remote
+localrepository = Fastmail-Local
+remoterepository = Fastmail-Remote
 status_backend = sqlite
 
-[Repository Local]
+[Repository Fastmail-Local]
 localfolders = ~/.mail/mike-fastmail.com
 type = Maildir
+nametrans = lambda folder: folder == 'INBOX' and 'INBOX' or ('INBOX.' + folder)
 
-[Repository Remote]
+[Repository Fastmail-Remote]
 type = IMAP
 remotehost = mail.messagingengine.com
 remoteport = 993
@@ -21,16 +22,11 @@ ssl = yes
 cert_fingerprint   = 54137524fe721f0cbb8a6a0e1e280ade50482e29
 holdconnectionopen = yes
 maxconnections = 3
-readonly = True
 remoteuser = mikealdred@fastmail.fm
 remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
-
-nametrans = lambda folder: {'INBOX.Drafts':    'drafts',
-                            'INBOX.Sent Items': 'sent',
-                            'INBOX.Trash':     'trash',
-                            'INBOX.Archive':  'archive',
-                            }.get(folder, folder)
-
+nametrans = lambda folder: re.sub('^INBOX\.', '', folder)
 folderfilter = lambda folder: folder not in [
                                              'INBOX.Junk Mail',
+                                             'INBOX.Trash'
                                              ]
+realdelete = yes
