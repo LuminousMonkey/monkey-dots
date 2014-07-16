@@ -25,9 +25,8 @@ maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
 remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
 nametrans = lambda folder: re.sub('^INBOX\.', '', folder)
-folderfilter = lambda folder: folder in [
-                                         'INBOX',
-                                         'INBOX.Archive',
-                                         'INBOX.Sent Items',
+folderfilter = lambda folder: folder not in [
+                                         'INBOX.Junk Mail',
+                                         'INBOX.Trash',
                                          ]
 realdelete = yes
