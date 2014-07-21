@@ -29,4 +29,3 @@ folderfilter = lambda folder: folder not in [
                                          'INBOX.Junk Mail',
                                          'INBOX.Trash',
                                          ]
-realdelete = yes

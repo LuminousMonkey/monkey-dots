@@ -9,6 +9,16 @@ Xft.hinting:   1
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
+! Fix backspace key in terminal
+! Remaps backspace key from <c-h> to <c-?>, and remaps <c-space> to <c-h>.
+*VT100.Translations:#override \
+      ~Ctrl<Key>BackSpace:string(0x7F)\n\
+       Ctrl<Key>BackSpace:string(0x08)\n
+*ttyModes:erase ^?
+
+! Fix backspace key in vim
+*VT100.backarrowKey:false
+
 XTerm*faceName:         xft:Monaco for Powerline
 xterm*faceSize:         13
 xterm*boldMode:         false
@@ -31,6 +41,8 @@ xterm*multiScroll:      true
 xterm*saveLines:        512
 xterm*termName:         xterm-256color
 
+UXTerm*utf8: 1
+UXTerm*eightBitInput: false
 UXTerm*faceName:         Monaco for Powerline
 UXTerm*faceSize:         13
 UXTerm*boldMode:         false
@@ -41,6 +53,8 @@ UXTerm*internalBorder:   1
 UXTerm*background:       #121212
 UXTerm*foreground:       #a0a0a0
 UXTerm*metaSendsEscape:  true
+UXTerm*altSendsEscape: true
+UXTerm*altIsNotMeta: true
 UXTerm*colorBD:          #ffffff
 UXTerm*colorBDMode:      true
 UXTerm*cursorBlink:      false
