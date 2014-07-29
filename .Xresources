@@ -19,8 +19,8 @@ Xft.lcdfilter: lcddefault
 ! Fix backspace key in vim
 *VT100.backarrowKey:false
 
-XTerm*faceName:         xft:Monaco for Powerline
-xterm*faceSize:         13
+XTerm*faceName:         xft:Cousine
+xterm*faceSize:         15
 xterm*boldMode:         false
 xterm*cutNewline:       false
 xterm*on4Clicks:        group
@@ -43,8 +43,8 @@ xterm*termName:         xterm-256color
 
 UXTerm*utf8: 1
 UXTerm*eightBitInput: false
-UXTerm*faceName:         Monaco for Powerline
-UXTerm*faceSize:         13
+UXTerm*faceName:         xft:Cousine
+UXTerm*faceSize:         15
 UXTerm*boldMode:         false
 UXTerm*cutNewline:       false
 UXTerm*on4Clicks:        group
