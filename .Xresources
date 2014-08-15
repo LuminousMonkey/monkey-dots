@@ -144,3 +144,50 @@ gnuplot*line5Color:   #afbde1
 gnuplot*line6Color:   #004b23
 gnuplot*line7Color:   #d5bd97
 gnuplot*line8Color:   #a681ba
+
+xscreensaver.lock: True
+! Resources for the password and splash-screen dialog boxes of
+! the "xscreensaver" daemon.
+xscreensaver.Dialog.headingFont: *-helvetica-bold-r-*-*-*-180-*-*-*-iso8859-1
+xscreensaver.Dialog.bodyFont: *-helvetica-bold-r-*-*-*-140-*-*-*-iso8859-1
+xscreensaver.Dialog.labelFont: *-helvetica-bold-r-*-*-*-140-*-*-*-iso8859-1
+xscreensaver.Dialog.unameFont: *-helvetica-bold-r-*-*-*-120-*-*-*-iso8859-1
+xscreensaver.Dialog.buttonFont: *-helvetica-bold-r-*-*-*-140-*-*-*-iso8859-1
+xscreensaver.Dialog.dateFont: *-helvetica-medium-r-*-*-*-80-*-*-*-iso8859-1
+
+! Helvetica asterisks look terrible.
+xscreensaver.passwd.passwdFont: *-courier-medium-r-*-*-*-140-*-*-*-iso8859-1
+
+xscreensaver.Dialog.foreground: #000000
+xscreensaver.Dialog.background: #E6E6E6
+xscreensaver.Dialog.Button.foreground: #000000
+xscreensaver.Dialog.Button.background: #F5F5F5
+
+!*Dialog.Button.pointBackground: #EAEAEA
+!*Dialog.Button.clickBackground: #C3C3C3
+xscreensaver.Dialog.text.foreground: #000000
+xscreensaver.Dialog.text.background: #FFFFFF
+xscreensaver.passwd.thermometer.foreground: #4464AC
+xscreensaver.passwd.thermometer.background: #FFFFFF
+xscreensaver.Dialog.topShadowColor: #FFFFFF
+xscreensaver.Dialog.bottomShadowColor: #CECECE
+xscreensaver.Dialog.logo.width: 210
+xscreensaver.Dialog.logo.height: 210
+xscreensaver.Dialog.internalBorderWidth: 24
+xscreensaver.Dialog.borderWidth: 1
+xscreensaver.Dialog.shadowThickness: 2
+
+xscreensaver.passwd.heading.label: XScreenSaver %s
+xscreensaver.passwd.body.label: This screen is locked.
+xscreensaver.passwd.unlock.label: OK
+xscreensaver.passwd.login.label: New Login
+xscreensaver.passwd.user.label: Username:
+xscreensaver.passwd.thermometer.width: 8
+xscreensaver.passwd.asterisks: True
+xscreensaver.passwd.uname: True
+
+xscreensaver.splash.heading.label: XScreenSaver %s
+xscreensaver.splash.body.label: Copyright © 1991-2013 by
+xscreensaver.splash.body2.label: Jamie Zawinski <jwz@jwz.org>
+xscreensaver.splash.demo.label: Settings
+xscreensaver.splash.help.label: Help
