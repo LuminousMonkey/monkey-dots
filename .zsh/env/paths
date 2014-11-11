@@ -1,5 +1,7 @@
 # Add the paths that I tend to have
-path=($path
-    $HOME/.local/bin)
+path=(
+    $HOME/.local/bin
+    $HOME/.local/context/tex/texmf-osx-64/bin
+    $path)
 
 export PATH
