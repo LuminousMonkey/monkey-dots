@@ -1,5 +1,6 @@
 # Add the paths that I tend to have
 path=($path
-    $HOME/.local/bin)
+    $HOME/.local/bin
+    $HOME/.cabal/bin)
 
 export PATH
