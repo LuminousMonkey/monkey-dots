@@ -1,6 +1,9 @@
 # Add the paths that I tend to have
 path=($path
     $HOME/.local/bin
+    $HOME/.cabal/bin
+    $HOME/.local/context/tex/texmf-osx-64/bin
     $HOME/.gem/ruby/2.1.0/bin)
 
 export PATH
+
