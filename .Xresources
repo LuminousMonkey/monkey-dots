@@ -28,7 +28,7 @@ xterm*on5Clicks:        page
 xterm*internalBorder:   1
 xterm*background:       #121212
 xterm*foreground:       #a0a0a0
-xterm*metaSendsEscape:  true
+!xterm*metaSendsEscape:  true
 xterm*colorBD:          #ffffff
 xterm*colorBDMode:      true
 xterm*cursorBlink:      false
@@ -38,7 +38,7 @@ xterm*loginShell:       true
 xterm*charClass:        33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
 xterm*jumpScroll:       true
 xterm*multiScroll:      true
-xterm*saveLines:        512
+xterm*saveLines:        51200
 xterm*termName:         xterm-256color
 
 UXTerm*utf8: 1
@@ -53,8 +53,8 @@ UXTerm*internalBorder:   1
 UXTerm*background:       #121212
 UXTerm*foreground:       #a0a0a0
 UXTerm*metaSendsEscape:  true
-UXTerm*altSendsEscape: true
-UXTerm*altIsNotMeta: true
+!UXTerm*altSendsEscape: true
+!UXTerm*altIsNotMeta: true
 UXTerm*colorBD:          #ffffff
 UXTerm*colorBDMode:      true
 UXTerm*cursorBlink:      false
@@ -64,7 +64,7 @@ UXTerm*loginShell:       true
 UXTerm*charClass:        33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48,35:48,58:48,63:48,61:48,44:48,38:48,59:48
 UXTerm*jumpScroll:       true
 UXTerm*multiScroll:      true
-UXTerm*saveLines:        512
+UXTerm*saveLines:        51200
 UXTerm*termName:         xterm-256color
 
 UXTerm*color0:                         #1b1d1e
@@ -129,7 +129,9 @@ URxvt*color14:                        #a3babf
 URxvt*color7:                         #ccccc6
 URxvt*color15:                        #f8f8f2
 
-URxvt.perl-ext-common: default,tabbed
+URxvt.perl-ext-common: tabbed
+URxvt.tabbed.autohide: yes
+URxvt.tabbed.new-button: no
 
 !---- GNU Plot Colours
 gnuplot*background:   #e5dfd7
