@@ -16,6 +16,7 @@ type = Maildir
 nametrans = lambda folder: folder == 'INBOX' and 'INBOX' or ('INBOX.' + folder)
 
 [Repository Fastmail-Remote]
+readonly = true
 type = IMAP
 remotehost = mail.messagingengine.com
 remoteport = 993
@@ -26,6 +27,7 @@ maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
 remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
 nametrans = lambda folder: re.sub('^INBOX\.', '', folder)
+
 folderfilter = lambda folder: folder not in [
                                          'INBOX.Junk Mail',
                                          'INBOX.Trash',
@@ -83,6 +85,7 @@ nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
                             }.get(folder, folder)
 
 [Repository OldEmail-Remote]
+readonly = true
 type = Gmail
 remoteuser = mike.aldred@gmail.com
 remotepassval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
@@ -93,6 +96,12 @@ folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Bin',
                                                      ]
 
+nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
+                            '[Google Mail]/Sent Mail': 'sent',
+                            '[Google Mail]/Starred':   'flagged',
+                            '[Google Mail]/Trash':     'trash',
+                            '[Google Mail]/All Mail':  'archive',
+                            }.get(folder, folder)
 
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
