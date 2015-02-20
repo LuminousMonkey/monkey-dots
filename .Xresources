@@ -87,11 +87,11 @@ UXTerm*color15:                        #f8f8f2
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    true
-URxvt*font:                         xft:Monaco for Powerline:regular:size=14
-URxvt*imFont:               xft:Monaco for Powerline:regular:size=14
-URxvt*boldFont:             xft:Monaco for Powerline:bold:size=14
-URxvt*italicFont:           xft:Monaco for Powerline:italic:size=14
-URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=14
+URxvt*font:                         xft:Cousine:regular:size=14
+URxvt*imFont:               xft:Cousine:regular:size=14
+URxvt*boldFont:             xft:Cousine:bold:size=14
+URxvt*italicFont:           xft:Cousine:italic:size=14
+URxvt*boldItalicFont:       xft:Cousine:bold:italic:size=14
 URxvt*jumpScroll:                     true
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false
