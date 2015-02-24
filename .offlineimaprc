@@ -1,6 +1,6 @@
 [general]
 pythonfile = ~/.offlineimap.py
-accounts = Fastmail, DirectComms, OldEmail
+accounts = Fastmail, DirectComms, OldEmail, Uni
 socktimeout = 60
 maxsyncaccounts = 3
 fsync = false
@@ -16,7 +16,6 @@ type = Maildir
 nametrans = lambda folder: folder == 'INBOX' and 'INBOX' or ('INBOX.' + folder)
 
 [Repository Fastmail-Remote]
-readonly = true
 type = IMAP
 remotehost = mail.messagingengine.com
 remoteport = 993
@@ -49,7 +48,6 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             }.get(folder, folder)
 
 [Repository DirectComms-Remote]
-readonly = true
 type = Gmail
 remoteuser = mike.aldred@directcommunications.com.au
 remotepasseval = get_keychain_pass(account="mike.aldred@directcommunications.com.au", server="imap.gmail.com")
@@ -85,10 +83,9 @@ nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
                             }.get(folder, folder)
 
 [Repository OldEmail-Remote]
-readonly = true
 type = Gmail
 remoteuser = mike.aldred@gmail.com
-remotepassval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
+remotepasseval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
 folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Trash',
                                                      '[Google Mail]/Important',
@@ -103,5 +100,41 @@ nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
                             '[Google Mail]/All Mail':  'archive',
                             }.get(folder, folder)
 
+# Necessary as of OfflineIMAP 6.5.4
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Account Uni]
+localrepository = Uni-Local
+remoterepository = Uni-Remote
+status_backend = sqlite
+
+[Repository Uni-Local]
+type = Maildir
+localfolders = ~/.mail/mike-student.curtin.edu.au
+nametrans = lambda folder: {'drafts': 'Drafts',
+                            'sent': 'Sent Items',
+                            'trash': 'Deleted Items',
+                            'archive': 'Archive',
+                           }.get(folder, folder)
+
+[Repository Uni-Remote]
+type = IMAP
+remoteport = 993
+ssl = yes
+remotehost = outlook.office365.com
+remoteuser = 09831542@student.curtin.edu.au
+remotepasseval = get_keychain_pass(account="09831542@student.curtin.edu.au", server="outlook.office365.com")
+folderfilter = lambda foldername: foldername in ['INBOX',
+                                                 'Drafts',
+                                                 'Sent Items',
+                                                 'Deleted Items',
+                                                 'Archive',
+                                                ]
+
+nametrans = lambda folder: {'Drafts': 'drafts',
+                            'Sent Items': 'sent',
+                            'Deleted Items': 'trash',
+                            'Archive': 'archive',
+                           }.get(folder, folder)
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
