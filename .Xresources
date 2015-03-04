@@ -98,7 +98,7 @@ URxvt*scrollTtyOutput:                false
 URxvt*scrollTtyKeypress:              true
 URxvt*urgentOnBell:                   true
 URxvt*visualBell:                     false
-URxvt*perl-ext-common:                default,matcher
+!URxvt*perl-ext-common:                default,matcher
 URxvt*urlLauncher:                    google-chrome
 URxvt*matcher.button:                 1
 
@@ -128,10 +128,6 @@ URxvt*color6:                         #5e7175
 URxvt*color14:                        #a3babf
 URxvt*color7:                         #ccccc6
 URxvt*color15:                        #f8f8f2
-
-URxvt.perl-ext-common: tabbed
-URxvt.tabbed.autohide: yes
-URxvt.tabbed.new-button: no
 
 !---- GNU Plot Colours
 gnuplot*background:   #e5dfd7
