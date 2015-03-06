@@ -1,7 +1,7 @@
 [general]
 pythonfile = ~/.offlineimap.py
 accounts = Fastmail, DirectComms, OldEmail, Uni
-socktimeout = 60
+socktimeout = 10
 maxsyncaccounts = 3
 fsync = false
 
@@ -62,7 +62,6 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              '[Gmail]/Important',
                                              '[Gmail]/Spam',
                                              '[Gmail]/Bin',
-                                             '[Gmail]/All Mail',
                                              ]
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
