@@ -6,7 +6,6 @@ maxsyncaccounts = 5
 fsync = false
 
 [Account Fastmail]
-autorefresh = 10
 localrepository = Fastmail-Local
 remoterepository = Fastmail-Remote
 status_backend = sqlite
@@ -34,7 +33,6 @@ folderfilter = lambda folder: folder not in [
                                          ]
 
 [Account DirectComms]
-autorefresh = 10
 localrepository = DirectComms-Local
 remoterepository = DirectComms-Remote
 status_backend = sqlite
@@ -69,7 +67,6 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account OldEmail]
-autorefresh = 10
 localrepository = OldEmail-Local
 remoterepository = OldEmail-Remote
 status_backend = sqlite
@@ -106,7 +103,6 @@ nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account Uni]
-autorefresh = 20
 localrepository = Uni-Local
 remoterepository = Uni-Remote
 status_backend = sqlite

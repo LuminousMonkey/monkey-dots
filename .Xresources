@@ -87,19 +87,19 @@ UXTerm*color15:                        #f8f8f2
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    true
-URxvt*font:                         xft:Cousine:regular:size=14
-URxvt*imFont:               xft:Cousine:regular:size=14
-URxvt*boldFont:             xft:Cousine:bold:size=14
-URxvt*italicFont:           xft:Cousine:italic:size=14
-URxvt*boldItalicFont:       xft:Cousine:bold:italic:size=14
-URxvt*jumpScroll:                     true
+URxvt*font:                         xft:Cousine:regular:size=14,\
+                                    xft:Code2000,\
+                                    xft:Code2001,\
+                                    xfr:Code2002
+URxvt*letterSpace: -1
+
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false
 URxvt*scrollTtyKeypress:              true
 URxvt*urgentOnBell:                   true
 URxvt*visualBell:                     false
 !URxvt*perl-ext-common:                default,matcher
-URxvt*urlLauncher:                    google-chrome
+URxvt*urlLauncher:                    google-chrome-stable
 URxvt*matcher.button:                 1
 
 !---- Default URxvt (Solarized Dark, 12px)
