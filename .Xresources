@@ -86,7 +86,7 @@ UXTerm*color15:                        #f8f8f2
 
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
-URxvt*cursorBlink:                    true
+URxvt*cursorBlink:                    false
 URxvt*font:                         xft:Cousine:regular:size=14
 URxvt*imFont:               xft:Cousine:regular:size=14
 URxvt*boldFont:             xft:Cousine:bold:size=14

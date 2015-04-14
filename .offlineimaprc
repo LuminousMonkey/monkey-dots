@@ -6,7 +6,6 @@ maxsyncaccounts = 5
 fsync = false
 
 [Account Fastmail]
-autorefresh = 10
 localrepository = Fastmail-Local
 remoterepository = Fastmail-Remote
 status_backend = sqlite
@@ -34,7 +33,6 @@ folderfilter = lambda folder: folder not in [
                                          ]
 
 [Account DirectComms]
-autorefresh = 10
 localrepository = DirectComms-Local
 remoterepository = DirectComms-Remote
 status_backend = sqlite
@@ -47,6 +45,7 @@ nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
                             'flagged': '[Gmail]/Starred',
                             'trash':   '[Gmail]/Trash',
                             'archive': '[Gmail]/All Mail',
+                            'backlog': 'Backlog',
                             }.get(folder, folder)
 
 [Repository DirectComms-Remote]
@@ -58,6 +57,7 @@ nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
                             '[Gmail]/Starred':   'flagged',
                             '[Gmail]/Trash':     'trash',
                             '[Gmail]/All Mail':  'archive',
+                            'Backlog':   'backlog',
                             }.get(folder, folder)
 
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
@@ -69,7 +69,6 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account OldEmail]
-autorefresh = 10
 localrepository = OldEmail-Local
 remoterepository = OldEmail-Remote
 status_backend = sqlite
@@ -106,7 +105,6 @@ nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account Uni]
-autorefresh = 20
 localrepository = Uni-Local
 remoterepository = Uni-Remote
 status_backend = sqlite
