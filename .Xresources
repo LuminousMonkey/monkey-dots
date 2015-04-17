@@ -67,8 +67,8 @@ UXTerm*multiScroll:      true
 UXTerm*saveLines:        51200
 UXTerm*termName:         xterm-256color
 
-UXTerm*color0:                         #1b1d1e
-UXTerm*color8:                         #505354
+UXTerm*color0:                         #3b3d3e
+UXTerm*color8:                         #707374
 UXTerm*color1:                         #f92672
 UXTerm*color9:                         #ff669d
 UXTerm*color2:                         #a6e22e
@@ -88,7 +88,6 @@ UXTerm*color15:                        #f8f8f2
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    false
 URxvt*jumpScroll:                     true
-URxvt*cursorBlink:                    true
 URxvt*font:                         xft:Cousine:regular:size=14,\
                                     xft:Code2000,\
                                     xft:Code2001,\
@@ -114,8 +113,8 @@ URxvt*pointerColorBackground:         #586e75
 URxvt*pointerColorForeground:         #93a1a1
 URxvt*colorUL:                        #859900
 URxvt*colorBD:                        #268bd2
-URxvt*color0:                         #1b1d1e
-URxvt*color8:                         #505354
+URxvt*color0:                         #3b3d3e
+URxvt*color8:                         #707374
 URxvt*color1:                         #f92672
 URxvt*color9:                         #ff669d
 URxvt*color2:                         #a6e22e
