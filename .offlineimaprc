@@ -13,7 +13,11 @@ status_backend = sqlite
 [Repository Fastmail-Local]
 localfolders = ~/.mail/mike-fastmail.com
 type = Maildir
-nametrans = lambda folder: folder == 'INBOX' and 'INBOX' or ('INBOX.' + folder)
+nametrans = lambda folder: {'drafts':  'INBOX.Drafts',
+                            'sent':    'INBOX.Sent Items',
+                            'trash':   'INBOX.Trash',
+                            'archive': 'INBOX.Archive',
+                            }.get(folder, folder)
 
 [Repository Fastmail-Remote]
 type = IMAP
@@ -25,11 +29,17 @@ holdconnectionopen = yes
 maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
 remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
-nametrans = lambda folder: re.sub('^INBOX\.', '', folder)
+
+nametrans = lambda folder: {'INBOX.Drafts': 'drafts',
+                            'INBOX.Sent Items': 'sent',
+                            'INBOX.Archive': 'archive',
+                            'INBOX.Trash': 'trash',
+                            'INBOX.INBOX': 'INBOX'
+                            }.get(folder, folder)
+
 
 folderfilter = lambda folder: folder not in [
                                          'INBOX.Junk Mail',
-                                         'INBOX.Trash',
                                          ]
 
 [Account DirectComms]
