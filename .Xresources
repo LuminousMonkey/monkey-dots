@@ -89,6 +89,7 @@ URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    false
 URxvt*jumpScroll:                     true
 URxvt*font:                         xft:Cousine:regular:size=14,\
+                                    xft:Quivira:regular:size=14,
                                     xft:Code2000,\
                                     xft:Code2001,\
                                     xfr:Code2002
