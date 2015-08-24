@@ -1,0 +1,6 @@
+xmodmap ~/.Xmodmap
+feh --bg-tile --randomize ~/Pictures/Wallpapers/* &
+xscreensaver -nosplash &
+dropbox start &
+
+
