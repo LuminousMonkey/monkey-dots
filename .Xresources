@@ -67,8 +67,8 @@ UXTerm*multiScroll:      true
 UXTerm*saveLines:        51200
 UXTerm*termName:         xterm-256color
 
-UXTerm*color0:                         #1b1d1e
-UXTerm*color8:                         #505354
+UXTerm*color0:                         #3b3d3e
+UXTerm*color8:                         #707374
 UXTerm*color1:                         #f92672
 UXTerm*color9:                         #ff669d
 UXTerm*color2:                         #a6e22e
@@ -86,20 +86,23 @@ UXTerm*color15:                        #f8f8f2
 
 !---- URxvt - General settings {
 URxvt*:borderLess:                    true
-URxvt*cursorBlink:                    true
-URxvt*font:                         xft:Cousine:regular:size=14
-URxvt*imFont:               xft:Cousine:regular:size=14
-URxvt*boldFont:             xft:Cousine:bold:size=14
-URxvt*italicFont:           xft:Cousine:italic:size=14
-URxvt*boldItalicFont:       xft:Cousine:bold:italic:size=14
+URxvt*cursorBlink:                    false
 URxvt*jumpScroll:                     true
+URxvt*font:                         xft:Cousine:regular:size=14,\
+                                    xft:Quivire:regular:size=14,\
+                                    xft:Unifont:size=14,\
+                                    xft:Code2000,\
+                                    xft:Code2001,\
+                                    xfr:Code2002
+URxvt*letterSpace: -1
+
 URxvt*scrollBar:                      false
 URxvt*scrollTtyOutput:                false
 URxvt*scrollTtyKeypress:              true
 URxvt*urgentOnBell:                   true
 URxvt*visualBell:                     false
 !URxvt*perl-ext-common:                default,matcher
-URxvt*urlLauncher:                    google-chrome
+URxvt*urlLauncher:                    google-chrome-stable
 URxvt*matcher.button:                 1
 
 !---- Default URxvt (Solarized Dark, 12px)
@@ -112,8 +115,8 @@ URxvt*pointerColorBackground:         #586e75
 URxvt*pointerColorForeground:         #93a1a1
 URxvt*colorUL:                        #859900
 URxvt*colorBD:                        #268bd2
-URxvt*color0:                         #1b1d1e
-URxvt*color8:                         #505354
+URxvt*color0:                         #3b3d3e
+URxvt*color8:                         #707374
 URxvt*color1:                         #f92672
 URxvt*color9:                         #ff669d
 URxvt*color2:                         #a6e22e
@@ -144,6 +147,7 @@ gnuplot*line7Color:   #d5bd97
 gnuplot*line8Color:   #a681ba
 
 xscreensaver.lock: True
+xscreensaver.programs: xmatrix -root -no-trace -no-knock-knock
 ! Resources for the password and splash-screen dialog boxes of
 ! the "xscreensaver" daemon.
 xscreensaver.Dialog.headingFont: *-helvetica-bold-r-*-*-*-180-*-*-*-iso8859-1
@@ -157,7 +161,7 @@ xscreensaver.Dialog.dateFont: *-helvetica-medium-r-*-*-*-80-*-*-*-iso8859-1
 xscreensaver.passwd.passwdFont: *-courier-medium-r-*-*-*-140-*-*-*-iso8859-1
 
 xscreensaver.Dialog.foreground: #000000
-xscreensaver.Dialog.background: #E6E6E6
+xscreensaver.Dialog.background: #FFE6E6
 xscreensaver.Dialog.Button.foreground: #000000
 xscreensaver.Dialog.Button.background: #F5F5F5
 
