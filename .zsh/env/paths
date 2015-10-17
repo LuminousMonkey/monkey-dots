@@ -6,6 +6,7 @@ path=($path
     $HOME/.gem/ruby/2.1.0/bin
     /opt/omni/bin
     /opt/python26/bin
+    $HOME/.local/android-studio/bin
     )
 
 path=($^path(N))                        # Remove non-existing dirs
