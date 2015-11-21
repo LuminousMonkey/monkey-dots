@@ -8,6 +8,7 @@ path=($path
     $HOME/.local/idea/bin
     /opt/omni/bin
     /opt/python26/bin
+    $HOME/.local/android-studio/bin
     /sbin
     /usr/sbin
     )
