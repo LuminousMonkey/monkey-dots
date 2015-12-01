@@ -13,10 +13,10 @@ status_backend = sqlite
 [Repository Fastmail-Local]
 localfolders = ~/.mail/mike-fastmail.com
 type = Maildir
-nametrans = lambda folder: {'drafts':  'INBOX.Drafts',
-                            'sent':    'INBOX.Sent Items',
-                            'trash':   'INBOX.Trash',
-                            'archive': 'INBOX.Archive',
+nametrans = lambda folder: {'Drafts':  'INBOX.Drafts',
+                            'Sent Items':    'INBOX.Sent Items',
+                            'Trash':   'INBOX.Trash',
+                            'Archive': 'INBOX.Archive',
                             }.get(folder, folder)
 
 [Repository Fastmail-Remote]
