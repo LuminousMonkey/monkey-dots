@@ -149,3 +149,29 @@ nametrans = lambda folder: {'Drafts': 'drafts',
                            }.get(folder, folder)
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+
+[Account Uni-Staff]
+localrepository = Uni-Staff-Local
+remoterepository = Uni-Staff-Remote
+status_backend = sqlite
+
+[Repository Uni-Staff-Local]
+type = Maildir
+localfolders = ~/.mail/mike-staff.curtin.edu.au
+
+[Repository Uni-Staff-Remote]
+type = IMAP
+remoteport = 993
+ssl = yes
+remotehost = outlook.office365.com
+remoteuser = 213849B@curtin.edu.au
+remotepasseval = get_keychain_pass(account="213849B@curtin.edu.au", server="outlook.office365.com")
+folderfilter = lambda foldername: foldername in ['INBOX',
+                                                 'Drafts',
+                                                 'Sent Items',
+                                                 'Deleted Items',
+                                                 'Archive',
+                                                ]
+
+# Necessary as of OfflineIMAP 6.5.4
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
