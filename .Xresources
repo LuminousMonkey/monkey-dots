@@ -88,7 +88,7 @@ UXTerm*color15:                        #f8f8f2
 URxvt*:borderLess:                    true
 URxvt*cursorBlink:                    false
 URxvt*jumpScroll:                     true
-URxvt*font:                         xft:Cousine:regular:size=14,\
+URxvt*font:                         xft:Inconsolata:regular:size=18,\
                                     xft:Quivire:regular:size=14,\
                                     xft:Unifont:size=14,\
                                     xft:Code2000,\
