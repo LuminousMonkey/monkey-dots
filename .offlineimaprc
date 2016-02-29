@@ -13,11 +13,6 @@ status_backend = sqlite
 [Repository Fastmail-Local]
 localfolders = ~/.mail/mike-fastmail.com
 type = Maildir
-nametrans = lambda folder: {'Drafts':  'INBOX.Drafts',
-                            'Sent Items':    'INBOX.Sent Items',
-                            'Trash':   'INBOX.Trash',
-                            'Archive': 'INBOX.Archive',
-                            }.get(folder, folder)
 
 [Repository Fastmail-Remote]
 type = IMAP
@@ -29,11 +24,12 @@ holdconnectionopen = yes
 maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
 remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
+auth_mechanisms = LOGIN
 
-nametrans = lambda folder: {'INBOX.Drafts': 'drafts',
-                            'INBOX.Sent Items': 'sent',
-                            'INBOX.Archive': 'archive',
-                            'INBOX.Trash': 'trash',
+nametrans = lambda folder: {'INBOX.Drafts': 'Drafts',
+                            'INBOX.Sent Items': 'Sent Items',
+                            'INBOX.Archive': 'Archive',
+                            'INBOX.Trash': 'Trash',
                             'INBOX.INBOX': 'INBOX'
                             }.get(folder, folder)
 
@@ -50,24 +46,26 @@ status_backend = sqlite
 [Repository DirectComms-Local]
 localfolders = ~/.mail/mike-directcommunications.com.au
 type = Maildir
-nametrans = lambda folder: {'drafts':  '[Gmail]/Drafts',
-                            'sent':    '[Gmail]/Sent Mail',
-                            'flagged': '[Gmail]/Starred',
-                            'trash':   '[Gmail]/Trash',
-                            'archive': '[Gmail]/All Mail',
-                            'backlog': 'Backlog',
+nametrans = lambda folder: {'Drafts':    '[Gmail]/Drafts',
+                            'Sent Mail': '[Gmail]/Sent Mail',
+                            'Flagged':   '[Gmail]/Starred',
+                            'Trash':     '[Gmail]/Trash',
+                            'All Mail':  '[Gmail]/All Mail',
+                            'Backlog':   'Backlog',
                             }.get(folder, folder)
 
 [Repository DirectComms-Remote]
+readonly = true
 type = Gmail
 remoteuser = mike.aldred@directcommunications.com.au
 remotepasseval = get_keychain_pass(account="mike.aldred@directcommunications.com.au", server="imap.gmail.com")
-nametrans = lambda folder: {'[Gmail]/Drafts':    'drafts',
-                            '[Gmail]/Sent Mail': 'sent',
-                            '[Gmail]/Starred':   'flagged',
-                            '[Gmail]/Trash':     'trash',
-                            '[Gmail]/All Mail':  'archive',
-                            'Backlog':   'backlog',
+auth_mechanisms = LOGIN
+nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
+                            '[Gmail]/Sent Mail': 'Sent Mail',
+                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Trash':     'Trash',
+                            '[Gmail]/All Mail':  'All Mail',
+                            'Backlog':   'Backlog',
                             }.get(folder, folder)
 
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
@@ -86,17 +84,19 @@ status_backend = sqlite
 [Repository OldEmail-Local]
 type = Maildir
 localfolders = ~/.mail/mike-gmail.com
-nametrans = lambda folder: {'drafts':  '[Google Mail]/Drafts',
-                            'sent':    '[Google Mail]/Sent Mail',
-                            'flagged': '[Google Mail]/Starred',
-                            'trash':   '[Google Mail]/Trash',
-                            'archive': '[Google Mail]/All Mail',
+nametrans = lambda folder: {'Drafts':    '[Google Mail]/Drafts',
+                            'Sent Mail': '[Google Mail]/Sent Mail',
+                            'Flagged':   '[Google Mail]/Starred',
+                            'Trash':     '[Google Mail]/Bin',
+                            'All Mail':  '[Google Mail]/All Mail',
                             }.get(folder, folder)
 
 [Repository OldEmail-Remote]
+readonly = true
 type = Gmail
 remoteuser = mike.aldred@gmail.com
 remotepasseval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
+auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Trash',
                                                      '[Google Mail]/Important',
@@ -104,11 +104,11 @@ folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Bin',
                                                      ]
 
-nametrans = lambda folder: {'[Google Mail]/Drafts':    'drafts',
-                            '[Google Mail]/Sent Mail': 'sent',
-                            '[Google Mail]/Starred':   'flagged',
-                            '[Google Mail]/Trash':     'trash',
-                            '[Google Mail]/All Mail':  'archive',
+nametrans = lambda folder: {'[Google Mail]/Drafts':    'Drafts',
+                            '[Google Mail]/Sent Mail': 'Sent Mail',
+                            '[Google Mail]/Starred':   'Flagged',
+                            '[Google Mail]/Bin':     'Trash',
+                            '[Google Mail]/All Mail':  'All Mail',
                             }.get(folder, folder)
 
 # Necessary as of OfflineIMAP 6.5.4
@@ -122,19 +122,18 @@ status_backend = sqlite
 [Repository Uni-Local]
 type = Maildir
 localfolders = ~/.mail/mike-student.curtin.edu.au
-nametrans = lambda folder: {'drafts': 'Drafts',
-                            'sent': 'Sent Items',
-                            'trash': 'Deleted Items',
-                            'archive': 'Archive',
+nametrans = lambda folder: {'Trash': 'Deleted Items',
                            }.get(folder, folder)
 
 [Repository Uni-Remote]
+readonly = true
 type = IMAP
 remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 09831542@student.curtin.edu.au
 remotepasseval = get_keychain_pass(account="09831542@student.curtin.edu.au", server="outlook.office365.com")
+auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
                                                  'Sent Items',
@@ -142,10 +141,7 @@ folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Archive',
                                                 ]
 
-nametrans = lambda folder: {'Drafts': 'drafts',
-                            'Sent Items': 'sent',
-                            'Deleted Items': 'trash',
-                            'Archive': 'archive',
+nametrans = lambda folder: {'Deleted Items': 'Trash',
                            }.get(folder, folder)
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
@@ -160,12 +156,14 @@ type = Maildir
 localfolders = ~/.mail/mike-staff.curtin.edu.au
 
 [Repository Uni-Staff-Remote]
+readonly = true
 type = IMAP
 remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 213849B@curtin.edu.au
 remotepasseval = get_keychain_pass(account="213849B@curtin.edu.au", server="outlook.office365.com")
+auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
                                                  'Sent Items',
