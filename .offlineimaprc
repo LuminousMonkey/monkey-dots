@@ -13,6 +13,7 @@ status_backend = sqlite
 [Repository Fastmail-Local]
 localfolders = ~/.mail/mike-fastmail.com
 type = Maildir
+nametrans = lambda folder: {'Sent': 'Sent Items'}.get(folder, folder)
 
 [Repository Fastmail-Remote]
 type = IMAP
@@ -26,17 +27,9 @@ remoteuser = mikealdred@fastmail.fm
 remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
 auth_mechanisms = LOGIN
 
-nametrans = lambda folder: {'INBOX.Drafts': 'Drafts',
-                            'INBOX.Sent Items': 'Sent Items',
-                            'INBOX.Archive': 'Archive',
-                            'INBOX.Trash': 'Trash',
-                            'INBOX.INBOX': 'INBOX'
-                            }.get(folder, folder)
+nametrans = lambda folder: {'Sent Items': 'Sent'}.get(folder, folder)
 
-
-folderfilter = lambda folder: folder not in [
-                                         'INBOX.Junk Mail',
-                                         ]
+folderfilter = lambda folder: folder not in ['Junk Mail']
 
 [Account DirectComms]
 localrepository = DirectComms-Local
@@ -47,32 +40,27 @@ status_backend = sqlite
 localfolders = ~/.mail/mike-directcommunications.com.au
 type = Maildir
 nametrans = lambda folder: {'Drafts':    '[Gmail]/Drafts',
-                            'Sent Mail': '[Gmail]/Sent Mail',
-                            'Flagged':   '[Gmail]/Starred',
+                            'Sent':      '[Gmail]/Sent Mail',
                             'Trash':     '[Gmail]/Trash',
                             'All Mail':  '[Gmail]/All Mail',
-                            'Backlog':   'Backlog',
                             }.get(folder, folder)
 
 [Repository DirectComms-Remote]
-readonly = true
 type = Gmail
 remoteuser = mike.aldred@directcommunications.com.au
 remotepasseval = get_keychain_pass(account="mike.aldred@directcommunications.com.au", server="imap.gmail.com")
 auth_mechanisms = LOGIN
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
-                            '[Gmail]/Sent Mail': 'Sent Mail',
-                            '[Gmail]/Starred':   'Flagged',
+                            '[Gmail]/Sent Mail': 'Sent',
                             '[Gmail]/Trash':     'Trash',
                             '[Gmail]/All Mail':  'All Mail',
-                            'Backlog':   'Backlog',
                             }.get(folder, folder)
 
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
-                                             '[Gmail]/Important',
                                              '[Gmail]/Spam',
-                                             '[Gmail]/Bin',
-                                             ]
+                                             '[Gmail]/Starred',
+                                             'Deleted Messages',
+                                             'Notes']
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
@@ -85,14 +73,12 @@ status_backend = sqlite
 type = Maildir
 localfolders = ~/.mail/mike-gmail.com
 nametrans = lambda folder: {'Drafts':    '[Google Mail]/Drafts',
-                            'Sent Mail': '[Google Mail]/Sent Mail',
-                            'Flagged':   '[Google Mail]/Starred',
+                            'Sent':      '[Google Mail]/Sent Mail',
                             'Trash':     '[Google Mail]/Bin',
                             'All Mail':  '[Google Mail]/All Mail',
                             }.get(folder, folder)
 
 [Repository OldEmail-Remote]
-readonly = true
 type = Gmail
 remoteuser = mike.aldred@gmail.com
 remotepasseval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
@@ -102,12 +88,12 @@ folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Important',
                                                      '[Google Mail]/Spam',
                                                      '[Google Mail]/Bin',
-                                                     ]
+                                                     '[Google Mail]/Starred',
+                                                     'Notes']
 
 nametrans = lambda folder: {'[Google Mail]/Drafts':    'Drafts',
-                            '[Google Mail]/Sent Mail': 'Sent Mail',
-                            '[Google Mail]/Starred':   'Flagged',
-                            '[Google Mail]/Bin':     'Trash',
+                            '[Google Mail]/Sent Mail': 'Sent',
+                            '[Google Mail]/Bin':       'Trash',
                             '[Google Mail]/All Mail':  'All Mail',
                             }.get(folder, folder)
 
@@ -123,10 +109,10 @@ status_backend = sqlite
 type = Maildir
 localfolders = ~/.mail/mike-student.curtin.edu.au
 nametrans = lambda folder: {'Trash': 'Deleted Items',
+                            'Sent':  'Sent Items'
                            }.get(folder, folder)
 
 [Repository Uni-Remote]
-readonly = true
 type = IMAP
 remoteport = 993
 ssl = yes
@@ -138,11 +124,12 @@ folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
                                                  'Sent Items',
                                                  'Deleted Items',
-                                                 'Archive',
-                                                ]
+                                                 'Archive']
 
 nametrans = lambda folder: {'Deleted Items': 'Trash',
+                            'Sent Items': 'Sent',
                            }.get(folder, folder)
+
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
@@ -163,13 +150,13 @@ ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 213849B@curtin.edu.au
 remotepasseval = get_keychain_pass(account="213849B@curtin.edu.au", server="outlook.office365.com")
+
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
                                                  'Sent Items',
                                                  'Deleted Items',
-                                                 'Archive',
-                                                ]
+                                                 'Archive']
 
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
