@@ -29,7 +29,9 @@ auth_mechanisms = LOGIN
 
 nametrans = lambda folder: {'Sent Items': 'Sent'}.get(folder, folder)
 
-folderfilter = lambda folder: folder not in ['Junk Mail']
+folderfilter = lambda folder: folder not in ['Junk Mail',
+                                             'Notes',
+                                             'Trash']
 
 [Account DirectComms]
 localrepository = DirectComms-Local
