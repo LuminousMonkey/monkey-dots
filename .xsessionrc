@@ -1,6 +1,0 @@
-xmodmap ~/.Xmodmap
-stalonetray &
-feh --bg-tile --randomize ~/Pictures/Wallpapers/* &
-xscreensaver -nosplash &
-dropbox start &
-wmname LG3D
