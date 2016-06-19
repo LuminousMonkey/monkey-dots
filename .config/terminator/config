@@ -7,16 +7,14 @@
 [profiles]
   [[default]]
     scrollbar_position = hidden
-    term = xterm-256color
-    colorterm = xterm-256color
     use_system_font = False
     background_image = None
     scrollback_lines = 2000
     palette = "#1b1d1e:#f92672:#a6e22e:#fd971f:#66d9ef:#9e6ffe:#5e7175:#ccccc6:#505354:#ff669d:#beed5f:#e6db74:#66d9ef:#9e6ffe:#a3babf:#f8f8f2"
-    cursor_color = "#ffa560"
-    foreground_color = "#f6f3e8"
+    cursor_color = "#dc322f"
+    foreground_color = "#a0a0a0"
     show_titlebar = False
-    font = Menlo for Powerline 14
+    font = Inconsolata 18
     scrollback_infinite = True
 [layouts]
   [[default]]
