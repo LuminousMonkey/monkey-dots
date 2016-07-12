@@ -1,0 +1,9 @@
+alias cisco-lab-r1='telnet cisco-lab 2033'
+alias cisco-lab-r2='telnet cisco-lab 2034'
+alias cisco-lab-r3='telnet cisco-lab 2035'
+alias cisco-lab-r4='telnet cisco-lab 2036'
+
+alias cisco-lab-s1='telnet cisco-lab 2037'
+alias cisco-lab-s2='telnet cisco-lab 2038'
+alias cisco-lab-s3='telnet cisco-lab 2039'
+alias cisco-lab-s4='telnet cisco-lab 2040'
