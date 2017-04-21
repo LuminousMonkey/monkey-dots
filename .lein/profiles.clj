@@ -6,6 +6,7 @@
                   [lein-typed "0.3.5"]
                   [com.jakemccrary/lein-test-refresh "0.19.0"]
                   [cider/cider-nrepl "0.15.0-SNAPSHOT"]
-                  [refactor-nrepl "2.3.0"]
-                  [jonase/eastwood "0.2.3"]]
-        :dependencies [[org.clojure/tools.nrepl "0.2.12"]]}}
+                  [refactor-nrepl "2.3.0-SNAPSHOT"]
+                  [jonase/eastwood "0.2.3"]
+                  [lein-license "0.1.6"]]
+        :dependencies [[org.clojure/tools.nrepl "0.2.13"]]}}
