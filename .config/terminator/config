@@ -14,7 +14,7 @@
     cursor_color = "#93a1a1"
     foreground_color = "#b0b0b0"
     show_titlebar = False
-    font = Monaco 14
+    font = Monaco 15
     background_color = "#1b1d1e"
     scrollback_infinite = True
 [layouts]
