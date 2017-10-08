@@ -3,13 +3,10 @@ path=($path
     $HOME/.local/bin
     $HOME/.cabal/bin
     $HOME/.local/context/tex/texmf-osx-64/bin
-    $HOME/.gem/ruby/2.1.0/bin
-    $HOME/.local/android-studio/bin
-    $HOME/.local/idea/bin
+    $HOME/.opam/4.05.0/bin
+    $HOME/.opam/system/bin
     /opt/omni/bin
     /opt/python26/bin
-    $HOME/.local/android-studio/bin
-    $HOME/.local/idea-IC-143.1184.17/bin
     /sbin
     /usr/sbin
     )
