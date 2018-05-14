@@ -1,6 +1,5 @@
 [global_config]
   title_transmit_bg_color = "#202020"
-  borderless = True
   title_transmit_fg_color = "#cccccc"
   title_inactive_bg_color = "#202020"
 [keybindings]
