@@ -2,13 +2,13 @@
 pythonfile = ~/.offlineimap.py
 accounts = Fastmail, DirectComms, OldEmail, Uni
 socktimeout = 10
-maxsyncaccounts = 5
-fsync = false
+maxsyncaccounts = 1
+fsync = true
+ssl_versions = tls1_2
 
 [Account Fastmail]
 localrepository = Fastmail-Local
 remoterepository = Fastmail-Remote
-status_backend = sqlite
 
 [Repository Fastmail-Local]
 localfolders = ~/.mail/mike-fastmail.com
@@ -24,7 +24,7 @@ cert_fingerprint = BDDC89DAE48629898AF13421D7844F806CA33943
 holdconnectionopen = yes
 maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
-remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
+remotepasseval = get_keychain_pass(server="mail.messagingengine.com", account="mikealdred@fastmail.fm")
 auth_mechanisms = LOGIN
 
 nametrans = lambda folder: {'Sent Items': 'Sent'}.get(folder, folder)
@@ -36,7 +36,6 @@ folderfilter = lambda folder: folder not in ['Junk Mail',
 [Account DirectComms]
 localrepository = DirectComms-Local
 remoterepository = DirectComms-Remote
-status_backend = sqlite
 
 [Repository DirectComms-Local]
 localfolders = ~/.mail/mike-directcommunications.com.au
@@ -44,18 +43,18 @@ type = Maildir
 nametrans = lambda folder: {'Drafts':    '[Gmail]/Drafts',
                             'Sent':      '[Gmail]/Sent Mail',
                             'Trash':     '[Gmail]/Trash',
-                            'All Mail':  '[Gmail]/All Mail',
+                            'Archive':   '[Gmail]/All Mail',
                             }.get(folder, folder)
 
 [Repository DirectComms-Remote]
 type = Gmail
 remoteuser = mike.aldred@directcommunications.com.au
-remotepasseval = get_keychain_pass(account="mike.aldred@directcommunications.com.au", server="imap.gmail.com")
+remotepasseval = get_keychain_pass(server="imap.gmail.com", account="mike.aldred@directcommunications.com.au")
 auth_mechanisms = LOGIN
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
                             '[Gmail]/Trash':     'Trash',
-                            '[Gmail]/All Mail':  'All Mail',
+                            '[Gmail]/All Mail':  'Archive',
                             }.get(folder, folder)
 
 folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
@@ -65,11 +64,11 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              'Notes']
 # Necessary as of OfflineIMAP 6.5.4
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+ssl_versions = tls1_2
 
 [Account OldEmail]
 localrepository = OldEmail-Local
 remoterepository = OldEmail-Remote
-status_backend = sqlite
 
 [Repository OldEmail-Local]
 type = Maildir
@@ -83,7 +82,7 @@ nametrans = lambda folder: {'Drafts':    '[Google Mail]/Drafts',
 [Repository OldEmail-Remote]
 type = Gmail
 remoteuser = mike.aldred@gmail.com
-remotepasseval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
+remotepasseval = get_keychain_pass(server="imap.gmail.com", account="mike.aldred@gmail.com")
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Trash',
@@ -105,7 +104,6 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 [Account Uni]
 localrepository = Uni-Local
 remoterepository = Uni-Remote
-status_backend = sqlite
 
 [Repository Uni-Local]
 type = Maildir
@@ -120,7 +118,7 @@ remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 09831542@student.curtin.edu.au
-remotepasseval = get_keychain_pass(account="09831542@student.curtin.edu.au", server="outlook.office365.com")
+remotepasseval = get_keychain_pass(server="outlook.office365.com", account="09831542@student.curtin.edu.au")
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
@@ -138,7 +136,6 @@ sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 [Account Uni-Staff]
 localrepository = Uni-Staff-Local
 remoterepository = Uni-Staff-Remote
-status_backend = sqlite
 
 [Repository Uni-Staff-Local]
 type = Maildir
@@ -151,7 +148,7 @@ remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 213849B@curtin.edu.au
-remotepasseval = get_keychain_pass(account="213849B@curtin.edu.au", server="outlook.office365.com")
+remotepasseval = get_keychain_pass(server="outlook.office365.com", account="213849B@curtin.edu.au")
 
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
