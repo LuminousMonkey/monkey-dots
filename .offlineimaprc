@@ -24,7 +24,7 @@ cert_fingerprint = BDDC89DAE48629898AF13421D7844F806CA33943
 holdconnectionopen = yes
 maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
-remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm", server="mail.messagingengine.com")
+remotepasseval = get_keychain_pass(server="mail.messagingengine.com", account="mikealdred@fastmail.fm")
 auth_mechanisms = LOGIN
 
 nametrans = lambda folder: {'Sent Items': 'Sent'}.get(folder, folder)
@@ -50,7 +50,7 @@ nametrans = lambda folder: {'Drafts':    '[Gmail]/Drafts',
 [Repository DirectComms-Remote]
 type = Gmail
 remoteuser = mike.aldred@directcommunications.com.au
-remotepasseval = get_keychain_pass(account="mike.aldred@directcommunications.com.au", server="imap.gmail.com")
+remotepasseval = get_keychain_pass(server="imap.gmail.com", account="mike.aldred@directcommunications.com.au")
 auth_mechanisms = LOGIN
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
@@ -83,7 +83,7 @@ nametrans = lambda folder: {'Drafts':    '[Google Mail]/Drafts',
 [Repository OldEmail-Remote]
 type = Gmail
 remoteuser = mike.aldred@gmail.com
-remotepasseval = get_keychain_pass(account="mike.aldred@gmail.com", server="imap.gmail.com")
+remotepasseval = get_keychain_pass(server="imap.gmail.com", account="mike.aldred@gmail.com")
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Trash',
@@ -120,7 +120,7 @@ remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 09831542@student.curtin.edu.au
-remotepasseval = get_keychain_pass(account="09831542@student.curtin.edu.au", server="outlook.office365.com")
+remotepasseval = get_keychain_pass(server="outlook.office365.com", account="09831542@student.curtin.edu.au")
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
@@ -151,7 +151,7 @@ remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 213849B@curtin.edu.au
-remotepasseval = get_keychain_pass(account="213849B@curtin.edu.au", server="outlook.office365.com")
+remotepasseval = get_keychain_pass(server="outlook.office365.com", account="213849B@curtin.edu.au")
 
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
