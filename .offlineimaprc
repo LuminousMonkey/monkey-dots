@@ -1,6 +1,6 @@
 [general]
 pythonfile = ~/.offlineimap.py
-accounts = Fastmail, DirectComms, OldEmail, Uni
+accounts = Fastmail, DirectComms, OldEmail
 socktimeout = 10
 maxsyncaccounts = 1
 fsync = true
