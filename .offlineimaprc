@@ -67,7 +67,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              'Deleted Messages',
                                              'Notes']
 # Necessary as of OfflineIMAP 6.5.4
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+sslcacertfile = /usr/local/etc/openssl/cert.pem
 ssl_versions = tls1_2
 
 [Account OldEmail]
@@ -104,7 +104,7 @@ nametrans = lambda folder: {'[Google Mail]/Drafts':    'Drafts',
                             }.get(folder, folder)
 
 # Necessary as of OfflineIMAP 6.5.4
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account Uni]
 localrepository = Uni-Local

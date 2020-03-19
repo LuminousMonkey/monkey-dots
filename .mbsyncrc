@@ -1,0 +1,103 @@
+CopyArrivalDate yes
+
+IMAPAccount luminousmonkey
+Host mail.messagingengine.com
+User mikealdred@fastmail.fm
+PassCmd "security find-generic-password -a mikealdred@fastmail.fm -w"
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+IMAPStore FastMail-Remote
+Account luminousmonkey
+
+MaildirStore FastMail-Local
+Path ~/.mail/mike-fastmail.com/
+Inbox ~/.mail/mike-fastmail.com/INBOX
+
+Channel fastmail-inbox
+Master :FastMail-Remote:
+Slave :FastMail-Local:
+Patterns "INBOX"
+Sync Pull
+Create Slave
+Expunge Slave
+SyncState *
+
+Channel fastmail-sent
+Master :FastMail-Remote:"Sent Items"
+Slave :FastMail-Local:sent
+Sync Pull
+Create Slave
+Expunge Slave
+SyncState *
+
+Channel fastmail-archive
+Master :FastMail-Remote:Archive
+Slave :FastMail-Local:archive
+Sync Pull
+Create Slave
+Expunge Slave
+SyncState *
+
+Channel fastmail-sbl
+Master :FastMail-Remote:SBL
+Slave :FastMail-Local:sbl
+Sync Pull
+Create Slave
+Expunge Slave
+SyncState *
+
+Channel fastmail-trash
+Master :FastMail-Remote:Trash
+Slave :FastMail-Local:trash
+Sync Pull
+Create Slave
+Expunge Slave
+SyncState *
+
+Group fastmail
+Channel fastmail-inbox
+Channel fastmail-trash
+
+IMAPAccount directcommunications
+Host imap.gmail.com
+User mike.aldred@directcommunications.com.au
+PassCmd "security find-generic-password -a mike.aldred@directcommunications.com.au -w"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore DirectComms-Remote
+Account directcommunications
+
+MaildirStore DirectComms-Local
+Path ~/.mail/mike-directcommunications.com.au/
+Inbox ~/.mail/mike-directcommunications.com.au/INBOX
+
+Channel directcomms-inbox
+Master :DirectComms-Remote:
+Slave :DirectComms-Local:
+Patterns "INBOX"
+Create Both
+Expunge Both
+SyncState *
+
+Channel directcomms-sent
+Master :DirectComms-Remote:"[Gmail]/Sent Mail"
+Slave :DirectComms-Local:sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel directcomms-archive
+Master :DirectComms-Remote:"[Gmail]/All Mail"
+Slave :DirectComms-Local:archive
+Create Both
+Expunge Both
+SyncState *
+
+Channel directcomms-trash
+Master :DirectComms-Remote:"[Gmail]/Bin"
+Slave :DirectComms-Local:trash
+Create Both
+Expunge Both
+SyncState *
