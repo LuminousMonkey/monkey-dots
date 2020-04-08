@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+# Anything marked to be deleted is not in the inbox
+notmuch tag -inbox -- tag:deleted
+
+# Anything that's marked as 'deleted' gets moved to trash.
+notmuch search --output=files \
+  '(folder:/mike-directcommunications\.com\.au/.*/ and tag:deleted)' \
+  and 'not folder:/mike-directcommunications\.com\.au\/trash/' \
+  | xargs -I'{}' mv '{}' "$HOME/.mail/mike-directcommunications.com.au/trash/cur/"
+
+notmuch search --output=files \
+  '(folder:/mike-fastmail\.com/.*/ and tag:deleted)' \
+  and 'not folder:/mike-fastmail\.com\/trash/' \
+  | xargs -I'{}' mv '{}' "$HOME/.mail/mike-fastmail.com/trash/cur/"
+
+

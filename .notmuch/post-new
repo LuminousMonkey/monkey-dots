@@ -1,0 +1,9 @@
+#!/bin/sh
+set -e
+notmuch tag --batch <<EOF
++inbox -- folder:/.*\/INBOX/
+-inbox -- not folder:/.*\/INBOX/
+sent -- folder:/.*\/sent/
++deleted -- folder:/.*\/trash/
+-deleted -- not folder:/.*\/trash/
+EOF

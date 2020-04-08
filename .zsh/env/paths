@@ -1,6 +1,7 @@
 # Add the paths that I tend to have
 path=(
     $HOME/.local/bin
+    $HOME/Library/Python/3.7/bin
     $path
     $HOME/.cabal/bin
     $HOME/.local/context/tex/texmf-osx-64/bin

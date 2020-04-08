@@ -1,10 +1,11 @@
 [general]
 pythonfile = ~/.offlineimap.py
-accounts = Fastmail, DirectComms, OldEmail
+accounts = Fastmail, DirectComms
 socktimeout = 10
 maxsyncaccounts = 1
 fsync = true
 ssl_versions = tls1_2
+status_backend = sqlite
 
 [Account Fastmail]
 localrepository = Fastmail-Local
@@ -20,11 +21,12 @@ type = IMAP
 remotehost = mail.messagingengine.com
 remoteport = 992
 ssl = yes
-cert_fingerprint = BDDC89DAE48629898AF13421D7844F806CA33943
+cert_fingerprint = c3b43678680c605062beffc6fac48d5b0623a27f448f7fa38bd0ab6f673323d4ccb6e841fb8828e4ad174070caef4cbf3a06e3ef86ae2ea605afa35ad7ef3abd
 holdconnectionopen = yes
 maxconnections = 3
 remoteuser = mikealdred@fastmail.fm
-remotepasseval = get_keychain_pass(server="mail.messagingengine.com", account="mikealdred@fastmail.fm")
+remotepasseval = get_keychain_pass(account="mikealdred@fastmail.fm")
+readonly = true
 auth_mechanisms = LOGIN
 
 nametrans = lambda folder: {'Sent Items': 'Sent'}.get(folder, folder)
@@ -48,9 +50,11 @@ nametrans = lambda folder: {'Drafts':    '[Gmail]/Drafts',
 
 [Repository DirectComms-Remote]
 type = Gmail
+maxconnections = 15
 remoteuser = mike.aldred@directcommunications.com.au
-remotepasseval = get_keychain_pass(server="imap.gmail.com", account="mike.aldred@directcommunications.com.au")
+remotepasseval = get_keychain_pass(account="mike.aldred@directcommunications.com.au")
 auth_mechanisms = LOGIN
+readonly = true
 nametrans = lambda folder: {'[Gmail]/Drafts':    'Drafts',
                             '[Gmail]/Sent Mail': 'Sent',
                             '[Gmail]/Trash':     'Trash',
@@ -63,7 +67,7 @@ folderfilter = lambda folder: folder not in ['[Gmail]/Trash',
                                              'Deleted Messages',
                                              'Notes']
 # Necessary as of OfflineIMAP 6.5.4
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+sslcacertfile = /usr/local/etc/openssl/cert.pem
 ssl_versions = tls1_2
 
 [Account OldEmail]
@@ -82,8 +86,9 @@ nametrans = lambda folder: {'Drafts':    '[Google Mail]/Drafts',
 [Repository OldEmail-Remote]
 type = Gmail
 remoteuser = mike.aldred@gmail.com
-remotepasseval = get_keychain_pass(server="imap.gmail.com", account="mike.aldred@gmail.com")
+remotepasseval = get_keychain_pass(account="mike.aldred@gmail.com")
 auth_mechanisms = LOGIN
+readonly = true
 folderfilter = lambda foldername: foldername not in ['[Google Mail]/All Mail',
                                                      '[Google Mail]/Trash',
                                                      '[Google Mail]/Important',
@@ -99,7 +104,7 @@ nametrans = lambda folder: {'[Google Mail]/Drafts':    'Drafts',
                             }.get(folder, folder)
 
 # Necessary as of OfflineIMAP 6.5.4
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+#sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 
 [Account Uni]
 localrepository = Uni-Local
@@ -118,7 +123,8 @@ remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 09831542@student.curtin.edu.au
-remotepasseval = get_keychain_pass(server="outlook.office365.com", account="09831542@student.curtin.edu.au")
+remotepasseval = get_keychain_pass(account="09831542@student.curtin.edu.au")
+readonly = true
 auth_mechanisms = LOGIN
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
@@ -148,9 +154,10 @@ remoteport = 993
 ssl = yes
 remotehost = outlook.office365.com
 remoteuser = 213849B@curtin.edu.au
-remotepasseval = get_keychain_pass(server="outlook.office365.com", account="213849B@curtin.edu.au")
+remotepasseval = get_keychain_pass(account="213849B@curtin.edu.au")
 
 auth_mechanisms = LOGIN
+readonly = true
 folderfilter = lambda foldername: foldername in ['INBOX',
                                                  'Drafts',
                                                  'Sent Items',
