@@ -1,0 +1,79 @@
+{:aliases {:new {:extra-deps {seancorfield/clj-new {:mvn/version "1.0.199"}}
+                 :main-opts ["-m" "clj-new.create"]}
+           :rebel {:extra-deps {com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+                   :main-opts ["-m" "rebel-readline.main"]}
+           :rebel-cljs {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
+                        :main-opts ["-m" "rebel-readline-cljs.main"]}
+           :rebel-nrepl {:extra-deps {nrepl {:mvn/version "0.8.0-alpha5"}
+                                      cider/cider-nrepl {:mvn/version "0.25.2"}
+                                      com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
+                         :main-opts ["-m" "nrepl.cmdline"
+                                     "--middleware" "[cider.nrepl/cider-middleware]"
+                                     "-i"
+                                     "-f" "rebel-readline.main/-main"]}
+           :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.7.0"}}}
+           :cider-nrepl {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.0"}
+                                      refactor-nrepl {:mvn/version "2.5.0"}}}
+           :test-path {:extra-paths ["test"]}
+           :spec {:extra-deps {org.clojure/spec.alpha {:mvn/version "0.2.176"}}}
+           :expectations {:extra-deps {expectations/clojure-test {:mvn/version "1.2.1"}}}
+           :test-runner-cognitect {:extra-paths ["test"]
+                                   :extra-deps {com.cognitect/test-runner
+                                                {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                                                 :sha "f7ef16dc3b8332b0d77bc0274578ad5270fbfedd"}}
+                                   :main-opts ["-m" "cognitect.test-runner"]}
+           :test-runner-cljs {:extra-paths ["test"]
+                              :extra-deps {olical/cljs-test-runner {:mvn/version "3.7.0"}}
+                              :main-opts ["-m" "cljs-test-runner.main"]}
+           :test-coverage {:extra-paths ["test"]
+                           :extra-deps {cloverage {:mvn/version "RELEASE"}}
+                           :main-opts ["-m" "cloverage.coverage"]}
+           :lint {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
+                  :main-opts ["-m" "clj-kondo.main"]}
+           :lint-eastwood {:main-opts ["-m" "eastwood.lint" {:source-paths ["src"]}]
+                           :extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}}
+           :idiom-check {:extra-deps {tvaughan/kitbit-runner {:mvn/version "0.2.3"}}
+                         :main-opts ["-m" "kibit-runner.cmdline"]}
+           :outdated {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
+                      :main-opts ["-m" "depot.outdated.main"]}
+           :outdated-update {:extra-deps {olical/depot {:mvn/version "1.8.4"}}
+                             :main-opts ["-m" "depot.outdated.main"
+                                         "--update"]}
+           :outdated-ancient {:main-opts ["-m" "deps-ancient.deps-ancient"]
+                              :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
+           :graph-vars {:extra-deps {thomasa/morpheus
+                                     {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                                      :sha     "d3decebc1cb9ef697cd34781f9cf83d44a071e85"}}
+                        :main-opts  ["-m" "thomasa.morpheus.main"]}
+           :graph-vars-png {:extra-deps {thomasa/morpheus
+                                         {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                                          :sha     "d3decebc1cb9ef697cd34781f9cf83d44a071e85"}}
+                            :main-opts  ["-m" "thomasa.morpheus.main"
+                                         "-d" "graphs" "-f" "png" "src" "test"]}
+           :graph-vars-svg {:extra-deps {thomasa/morpheus
+                                         {:git/url "https://github.com/benedekfazekas/morpheus.git"
+                                          :sha     "d3decebc1cb9ef697cd34781f9cf83d44a071e85"}}
+                            :main-opts  ["-m" "thomasa.morpheus.main"
+                                         "-d"  "graphs" "-f" "svg" "src" "test"]}
+
+           ;; Visualize connections between library dependencies and project namespaces
+           ;; https://github.com/SevereOverfl0w/vizns
+           ;; clj -A:graph-deps navigate      # navigable folder of SVGs
+           ;; clj -A:graph-deps   # deps-graph.dot file
+           ;; clj -A:graph-deps single -o deps-graph.png -f png # png file
+           ;; clj -A:graph-deps single -o deps-graph.svg -f svg # svg file
+           ;; clj -A:graph-deps single --show  # View graph without saving
+
+           :graph-deps {:deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                                 :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+                        :main-opts ["-m" "io.dominic.vizns.core"]}
+           ;; Generate single PNG image of library dependencies
+           :graph-deps-png {:deps {io.dominic/vizns {:git/url "https://github.com/SevereOverfl0w/vizns.git"
+                                                     :sha     "fb2391a4af24246ac4e46f3a573970ba5b7c92de"}}
+                            :main-opts ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
+           :build-depstar {:extra-deps
+                           {seancorfield/depstar {:mvn/version "1.0.94"}}}
+           :build-uberdeps {:extra-deps {uberdeps {:mvn/version "0.1.10"}}
+                            :main-opts  ["-m" "uberdeps.uberjar"]}
+           :benchmark {:extra-deps {criterium {:mvn/version "0.4.5"}}}
+           :measure {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.1.2"}}}}}
