@@ -4,7 +4,7 @@
                    :main-opts ["-m" "rebel-readline.main"]}
            :rebel-cljs {:extra-deps {com.bhauman/rebel-readline-cljs {:mvn/version "0.1.4"}}
                         :main-opts ["-m" "rebel-readline-cljs.main"]}
-           :rebel-nrepl {:extra-deps {nrepl {:mvn/version "0.8.0-alpha5"}
+           :rebel-nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.8.0-alpha5"}
                                       cider/cider-nrepl {:mvn/version "0.25.2"}
                                       com.bhauman/rebel-readline {:mvn/version "0.1.4"}}
                          :main-opts ["-m" "nrepl.cmdline"
@@ -13,7 +13,7 @@
                                      "-f" "rebel-readline.main/-main"]}
            :nrepl {:extra-deps {nrepl/nrepl {:mvn/version "0.7.0"}}}
            :cider-nrepl {:extra-deps {cider/cider-nrepl {:mvn/version "0.25.0"}
-                                      refactor-nrepl {:mvn/version "2.5.0"}}}
+                                      refactor-nrepl/refactor-nrepl {:mvn/version "2.5.0"}}}
            :test-path {:extra-paths ["test"]}
            :spec {:extra-deps {org.clojure/spec.alpha {:mvn/version "0.2.176"}}}
            :expectations {:extra-deps {expectations/clojure-test {:mvn/version "1.2.1"}}}
@@ -26,9 +26,9 @@
                               :extra-deps {olical/cljs-test-runner {:mvn/version "3.7.0"}}
                               :main-opts ["-m" "cljs-test-runner.main"]}
            :test-coverage {:extra-paths ["test"]
-                           :extra-deps {cloverage {:mvn/version "RELEASE"}}
+                           :extra-deps {cloverage/cloverage {:mvn/version "RELEASE"}}
                            :main-opts ["-m" "cloverage.coverage"]}
-           :lint {:extra-deps {clj-kondo {:mvn/version "RELEASE"}}
+           :lint {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
                   :main-opts ["-m" "clj-kondo.main"]}
            :lint-eastwood {:main-opts ["-m" "eastwood.lint" {:source-paths ["src"]}]
                            :extra-deps {jonase/eastwood {:mvn/version "RELEASE"}}}
@@ -40,7 +40,7 @@
                              :main-opts ["-m" "depot.outdated.main"
                                          "--update"]}
            :outdated-ancient {:main-opts ["-m" "deps-ancient.deps-ancient"]
-                              :extra-deps {deps-ancient {:mvn/version "RELEASE"}}}
+                              :extra-deps {deps-ancient/deps-ancient {:mvn/version "RELEASE"}}}
            :graph-vars {:extra-deps {thomasa/morpheus
                                      {:git/url "https://github.com/benedekfazekas/morpheus.git"
                                       :sha     "d3decebc1cb9ef697cd34781f9cf83d44a071e85"}}
@@ -73,7 +73,9 @@
                             :main-opts ["-m" "io.dominic.vizns.core" "single" "-o" "deps-graph.png" "-f" "png"]}
            :build-depstar {:extra-deps
                            {seancorfield/depstar {:mvn/version "1.0.94"}}}
-           :build-uberdeps {:extra-deps {uberdeps {:mvn/version "0.1.10"}}
+           :build-uberdeps {:extra-deps {uberdeps/uberdeps {:mvn/version "0.1.10"}}
                             :main-opts  ["-m" "uberdeps.uberjar"]}
-           :benchmark {:extra-deps {criterium {:mvn/version "0.4.5"}}}
+           :benchmark {:extra-deps {criterium/criterium {:mvn/version "0.4.5"}}}
+           :profiling {:extra-deps {criterium/criterium {:mvn/version "0.4.5"}}
+                       :jvm-opts ["-agentpath:/Applications/YourKit-Java-Profiler-2019.8.app/Contents/Resources/bin/mac/libyjpagent.dylib"]}
            :measure {:extra-deps {com.clojure-goes-fast/clj-memory-meter {:mvn/version "0.1.2"}}}}}
